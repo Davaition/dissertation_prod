@@ -2,13 +2,13 @@
 
 ## Project Background
 
-As an aspiring Data Analyst, I conducted this project to support a strategic evaluation of forecasting techniques within a financial analytics firm. The core objective was to assess whether classical time series models or artificial neural networks are more effective in forecasting market returns and volatility. The models were applied to major stock indices (FTSE 100, S&P 500) and cryptocurrencies (Bitcoin, Ethereum) using data from 2018 to 2023.
+This project is centered around supporting a strategic evaluation of forecasting techniques within a financial analytics firm. The core objective is to assess whether classical time series models or artificial neural networks are more effective in forecasting market returns and volatility, with the goal of improving the firms' efficiency and forecasting accuracy. The models were applied to major stock indices (FTSE 100, S&P 500) and cryptocurrencies (Bitcoin, Ethereum) using data from 2018 to 2023.
 
-The project compares ARIMA, GARCH, and EGARCH models with an LSTM neural network. It evaluates forecast accuracy across metrics including RMSE, MAE, and MAPE, providing data-driven recommendations for model selection based on performance, robustness, and asset class characteristics.
+The project compares ARIMA, GARCH, and EGARCH models with an LSTM neural network. Evaluating forecast accuracy across metrics including RMSE, MAE, and MAPE, providing a data-driven recommendation for model selection based on performance, robustness, and asset class characteristics.
 
 **Key Focus Areas:**
 
-- Return Forecasting Accuracy (ARIMA vs LSTM)
+- Returns Forecasting Accuracy (ARIMA vs LSTM)
 - Volatility Modelling (GARCH vs EGARCH)
 - Model Efficiency and Interpretability
 - Forecast Performance by Asset Class (Stocks vs Crypto)
@@ -16,9 +16,7 @@ The project compares ARIMA, GARCH, and EGARCH models with an LSTM neural network
 🔗 [Bitcoin Code](Bitcoin)  
 🔗 [Ethereum Code](Ethereum) 
 🔗 [FTSE Code](FTSE) 
-🔗 [S&P 500 Code](S&P_500) 
-🔗 [SQL business queries](data/sql/business_queries.sql)  
-📊 Tableau Dashboard (Coming Soon)
+🔗 [S&P 500 Code](S&P_500)  
 
 ---
 
@@ -38,17 +36,17 @@ Structured tables used in this analysis:
 - `forecast_results`: performance metrics for each model  
 - `model_configurations`: LSTM layer setups and hyperparameters
 
-Each asset had ~1250–1800 records. All series were tested for stationarity (ADF test), and returns were log-transformed to meet model assumptions. Missing values were cleaned and datasets scaled appropriately for LSTM modeling.
+Each asset had ~1250–1800 records. All series were tested for stationarity (ADF test), and returns were log-transformed to meet model assumptions. Missing values are cleaned, and datasets are scaled appropriately for LSTM modeling.
 
 ---
 
 ## Executive Summary
 
-This analysis determined that traditional time series models provide more reliable forecasts than LSTM models when working with relatively limited financial time series data. ARIMA outperformed LSTM in return forecasting across all assets. EGARCH delivered the most accurate volatility forecasts, due to its ability to model asymmetric shocks. Stock indices were generally easier to forecast than cryptocurrencies, producing lower error rates.
+The analysis determined that traditional time series models provide more reliable forecasts than LSTM models when working with relatively limited financial time series data. ARIMA outperformed LSTM in returns forecasting across all assets. EGARCH delivered the most accurate volatility forecasts, due to its ability to model asymmetric shocks. Stock indices were generally easier to forecast than cryptocurrencies, producing lower error rates. Therefore, the firm should operate using mostly or solely time series models, ARIMA for returns and EGARCH for volatility, while forecasting for stocks and reducing cryptocurrency volatility exposure.
 
 **Summary of Findings:**
 
-1. **ARIMA achieved lowest RMSE and MAE** in return forecasting.
+1. **ARIMA achieved the lowest RMSE and MAE** in returns forecasting.
 2. **EGARCH consistently outperformed GARCH** in modeling volatility.
 3. **Stocks delivered more predictable outcomes** than cryptocurrencies.
 
@@ -61,19 +59,19 @@ This analysis determined that traditional time series models provide more reliab
 - **Bitcoin ARIMA RMSE:** 0.037 | **LSTM RMSE:** 9755  
 - **FTSE ARIMA MAE:** 0.008 | **LSTM MAE (Test):** 1180  
 - **S&P 500 ARIMA MAPE:** 182.9 | **LSTM MAPE:** 0.132  
-- LSTM models exhibited overfitting and weak generalization on test data
+- The LSTM model exhibited overfitting and generalization on test data
 
 ### 2. Volatility Forecasting: GARCH vs EGARCH
 
 - **Ethereum EGARCH RMSE:** 0.01081 | **GARCH RMSE:** 0.011  
 - **FTSE EGARCH MAE:** 0.00004 (lowest overall)  
-- EGARCH captured leverage effects and asymmetry more effectively than GARCH
+- EGARCH captured leverage effects and asymmetry slightly more effectively than GARCH
 
 ### 3. Stocks vs Crypto Forecasting
 
 - **FTSE ARIMA RMSE:** 0.012 | **Bitcoin ARIMA RMSE:** 0.037  
 - **S&P 500 EGARCH RMSE:** 0.00007 | **Ethereum EGARCH RMSE:** 0.01081  
-- Cryptocurrencies had higher error due to greater volatility and noise
+- Cryptocurrencies had higher errors due to greater volatility and price noise
 
 ### 4. Model Efficiency and Configuration
 
@@ -88,7 +86,7 @@ This analysis determined that traditional time series models provide more reliab
 
 ## Recommendations
 
-Based on results, the following recommendations are made:
+Based on the results, the following recommendations are made:
 
 1. **Use ARIMA** for short- to medium-term return forecasting.
 2. **Implement EGARCH** when modeling volatility with asymmetric risks.
@@ -100,7 +98,7 @@ Based on results, the following recommendations are made:
 
 ## Assumptions and Caveats
 
-- Log returns were used to normalize variance and enable time series modeling.
+- Log returns are not actual returns, but were used to normalize variance and enable time series modeling.
 - All series were cleaned and tested for stationarity (ADF test).
 - LSTM models excluded macroeconomic or sentiment variables.
 - Forecasting spanned a consistent window (2018–2023) across all assets.
