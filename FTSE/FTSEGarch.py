@@ -86,7 +86,7 @@ rolling_volatility = np.sqrt(variance_expandwin)
 # Get the dates that are classified as a index
 ind_list = rolling_volatility.index
 
-# Plot the actual Bitcoin volatility
+# Plot the actual FTSE volatility
 plt.plot(FTSE_Prices['Log_Return'].loc[ind_list].sub(FTSE_Prices['Log_Return'].loc[ind_list].mean()).pow(2),
          color = 'grey', alpha = 0.4, label = 'Actual Daily Volatility')
 
