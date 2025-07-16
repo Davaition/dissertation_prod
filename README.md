@@ -13,7 +13,7 @@ The project compares ARIMA, GARCH, and EGARCH models with an LSTM neural network
 - Model Efficiency and Interpretability
 - Forecast Performance by Asset Class (Stocks vs Crypto)
 
-🔗 [Bitcoin Code](Bitcoin)  🔗 [Ethereum Code](Ethereum) 🔗 [FTSE Code](FTSE) 🔗 [S&P 500 Code](S&P_500)  🔗 [ARIMA Code](ARIMA_Code_R.R)  
+🔗 [Bitcoin Code](Bitcoin)  🔗 [Ethereum Code](Ethereum) 🔗 [FTSE Code](FTSE) 🔗 [S&P 500 Code](S&P_500)  🔗 [ARIMA Code](ARIMA_R_Code.R)  
 
 ---
 
