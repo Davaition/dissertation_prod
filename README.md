@@ -26,14 +26,13 @@ Data was obtained from Yahoo Finance and includes:
 - **Bitcoin** (BTC-USD)
 - **Ethereum** (ETH-USD)
 
-Structured tables used in this analysis:
+Variables used in this analysis:
 
-- `closing_prices`: historical close data  
-- `returns_log`: log-transformed returns  
-- `forecast_results`: performance metrics for each model  
-- `model_configurations`: LSTM layer setups and hyperparameters
+- `Close Prices`: The last price of the stock that is transacted before the market closes for normal trading.  
+- `Returns %`: The daily change in the price of an asset over time.   
+- `Log Returns`: The log of the daily change in the price of an asset over time. 
 
-Each asset had ~1250–1800 records. All series were tested for stationarity (ADF test), and returns were log-transformed to meet model assumptions. Missing values are cleaned, and datasets are scaled appropriately for LSTM modeling.
+Each asset had ~1250–1800 records. All series were tested for stationarity (ADF test), and returns were log-transformed to meet model assumptions. Missing values are cleaned, and datasets are scaled appropriately for LSTM modelling.
 
 ---
 
