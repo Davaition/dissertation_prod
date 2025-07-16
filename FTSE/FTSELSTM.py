@@ -42,12 +42,6 @@ FTSE_Prices['Date'] = FTSE_Prices['Date'].apply(str_to_datetime)
 FTSE_Prices.index = FTSE_Prices.pop('Date')
 FTSE_Prices = FTSE_Prices.dropna()
 
-#Plots a diagram for stock close prices
-#plt.plot(FTSE_Prices.index, FTSE_Prices['Log_Return'], color= 'red', label= 'FTSE Log Returns')
-#plt.plot(FTSE_Prices.index, FTSE_Prices['Close'], color= 'black', label= 'FTSE Closing Prices')
-#plt.title('FTSE')
-#plt.legend(loc = 'lower right')
-#plt.show()
 
 # Convert the data into displaying the current value at a time and the last 3 values in the previous days
 def df_to_windowed_df(dataframe, first_date_str, last_date_str, n=3):
@@ -151,12 +145,6 @@ X_train = sc.fit_transform(X_train)
 X_val = sc.fit_transform(X_val)
 X_test = sc.fit_transform(X_test)
 
-#plt.plot(dates_train, y_train)
-#plt.plot(dates_val, y_val)
-#plt.plot(dates_test, y_test)
-
-#plt.legend(['Train', 'Validation', 'Test'])
-#plt.show()
 
 # The sequential model used to forecast
 model = Sequential([layers.Input((3, 1)),
@@ -166,8 +154,6 @@ model = Sequential([layers.Input((3, 1)),
                     layers.Dense(32, activation='relu'),
                     layers.Dense(1)])
 
-#model.add(Dropout(0.01))
-#model.add(Dropout(0.001))
 
 # Currently the 4 2 2 split gives the best results
 # Define the complication of the model
@@ -223,7 +209,6 @@ evaluate(y_train, train_predictions, 'Train Data')
 evaluate(y_val, val_predictions, 'Validation Data')
 evaluate(y_test, test_predictions, 'Testing Data')
 
-#print(train_predictions)
 
 Train_Convert_Close_Prices = pd.DataFrame()
 Train_Convert_Close_Prices.index = dates_train
@@ -293,7 +278,6 @@ print(f"The Test Min is: {Test_Convert_Close_Prices['Close'].min()}")
 print(f"The Test Kurtosis is: {Test_Convert_Close_Prices['Close'].kurtosis()}")
 print(f"The Test Skew is: {Test_Convert_Close_Prices['Close'].skew()}")
 
-#print(Convert_Close_Prices)
 
 
 
